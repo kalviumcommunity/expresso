@@ -1,11 +1,13 @@
-package com.example.android.API;
+package com.example.android.API.Classes;
 
-public class User {
-    long userId;
-    String username;
-    String email;
-    String password;
-    long createdAt;
+import com.example.android.API.Interfaces.UserInterface;
+
+public class User implements UserInterface {
+    private long userId;
+    private String username;
+    private final String email;
+    private String password;
+    private final long createdAt;
 
     public User(long userId, String username, String email, String password, long createdAt) {
         this.userId = userId;
@@ -23,31 +25,27 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
+    @Override
+    public void changeUserName(String newUserName) {
+        this.username = newUserName;
+    }
+
+    @Override
+    public void changePassword(String newPassword) {
+        this.password = newPassword;
+    }
+
+    @Override
+    public boolean toggleDarkMode(boolean darkModeState) {
+        darkModeState = !darkModeState;
+        return darkModeState;
     }
 }

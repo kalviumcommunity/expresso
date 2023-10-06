@@ -1,6 +1,8 @@
-package com.example.android.API;
+package com.example.android.API.Classes;
 
-public class Comment {
+import com.example.android.API.Interfaces.CommentInterface;
+
+public class Comment implements CommentInterface {
     long commentId;
     String comment;
     long blogId;
@@ -19,10 +21,6 @@ public class Comment {
         return comment;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
     public long getCommentId() {
         return commentId;
     }
@@ -33,5 +31,10 @@ public class Comment {
 
     public long getUserId() {
         return userId;
+    }
+
+    @Override
+    public void editComment(String newComment) {
+        this.comment = newComment;
     }
 }

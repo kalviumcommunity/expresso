@@ -1,4 +1,4 @@
-package com.example.android.API;
+package com.example.android.API.Classes;
 
 public class Category {
     long categoryId;
