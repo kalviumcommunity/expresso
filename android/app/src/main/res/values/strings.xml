@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Expresso</string>
+    <string name="onboarding_contentText1">Create and publish blog posts with ease.</string>
+    <string name="onboarding_contentText2">Categorize and tag your posts for better discoverability.</string>
+    <string name="onboarding_contentText3">Promote your blog posts on social media.</string>
+    <string name="txt_continue">Continue</string>
+    <string name="onboarding_to_auth_txt">Create Your First Blog Post</string>
 </resources>
