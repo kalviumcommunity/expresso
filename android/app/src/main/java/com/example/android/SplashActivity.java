@@ -1,12 +1,13 @@
 package com.example.android;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.android.Utils.UtilityMethods;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
@@ -33,15 +34,14 @@ public class SplashActivity extends AppCompatActivity {
                 if (charIndex <= logoText.length()) {
                     logoTextView.setText(logoText.subSequence(0, charIndex));
                     charIndex++;
-                    handler.postDelayed(this, 200);
+                    handler.postDelayed(this, 50);
                 } else {
                     handler.postDelayed(() -> {
-                        Intent onboardingActivity = new Intent(getApplicationContext(), OnboardingActivity.class);
-                        startActivity(onboardingActivity);
-                        finish();
+                        UtilityMethods utilityMethods = new UtilityMethods();
+                        utilityMethods.openActivity(SplashActivity.this, OnboardingActivity.class);
                     }, 1000);
                 }
             }
-        }, 200);
+        }, 10);
     }
 }

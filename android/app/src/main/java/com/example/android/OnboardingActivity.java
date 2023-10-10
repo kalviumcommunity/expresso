@@ -1,13 +1,14 @@
 package com.example.android;
 
 import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.android.Utils.UtilityMethods;
 
 public class OnboardingActivity extends AppCompatActivity {
     private int clickCount = 0;
@@ -38,8 +39,8 @@ public class OnboardingActivity extends AppCompatActivity {
                 dotStateChange(clickCount);
                 clickCount++;
             } else if (clickCount == 2) {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                finish();
+                UtilityMethods utilityMethods = new UtilityMethods();
+                utilityMethods.openActivity(OnboardingActivity.this, LoginActivity.class);
             }
         });
     }

@@ -10,30 +10,24 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.android.Utils.UtilityMethods;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
-    AppCompatButton loginButton, signupButton;
+    AppCompatButton signupButton, loginButton;
     ImageView showPassword;
-    EditText Password;
     boolean isShowPassword = false;
+    EditText Password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup);
 
+        loginButton = findViewById(R.id.toLogin);
         showPassword = findViewById(R.id.showPassword);
         Password = findViewById(R.id.password);
-        loginButton = findViewById(R.id.login);
-        signupButton = findViewById(R.id.toSignup);
 
+        loginButton.setOnClickListener(v -> openLoginActivity());
         showPassword.setOnClickListener(v -> showPasswordFunctionality());
-        signupButton.setOnClickListener(v -> openSignupActivity());
-    }
-
-    private void openSignupActivity() {
-        UtilityMethods utilityMethods = new UtilityMethods();
-        utilityMethods.openActivity(LoginActivity.this, SignupActivity.class);
     }
 
     private void showPasswordFunctionality() {
@@ -47,5 +41,10 @@ public class LoginActivity extends AppCompatActivity {
             isShowPassword = false;
         }
         Password.setSelection(Password.getText().length());
+    }
+
+    private void openLoginActivity() {
+        UtilityMethods utilityMethods = new UtilityMethods();
+        utilityMethods.openActivity(SignupActivity.this, LoginActivity.class);
     }
 }
