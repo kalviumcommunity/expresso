@@ -12,6 +12,8 @@ abstract class AbstractUser implements UserInterface {
         this.password = password;
     }
 
+    abstract void getUserName();
+
     @Override
     public void changeUserName(String newUserName) {
         this.username = newUserName;
@@ -55,5 +57,9 @@ public class User extends AbstractUser {
     public boolean toggleDarkMode(boolean darkModeState) {
         darkModeState = !darkModeState;
         return darkModeState;
+    }
+    @Override
+    void getUserName() {
+        System.out.println(username);
     }
 }

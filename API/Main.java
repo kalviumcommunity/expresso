@@ -1,15 +1,16 @@
 package org.example.API;
 
 
+import org.example.API.Classes.Comment;
 import org.example.API.Classes.User;
 
 public class Main {
     public static void main(String[] args) {
         User User1 = new User("Ayush", "ayush.shrivastav@kalvium.com", "Ayush41red", 12345678);
-        User User2 = new User("Sidhant", "siddhant9504@gmail.com", "sidd9504", 1245785);
-        User User3 = new User("Akanksha", "akanksha23123@gmail.com", "vanshbishnoi0029", 45612378);
-        System.out.println(User1.getUsername());
-        User1.changeUserName("Ayush Shrivastav");
+        Comment comment = new Comment(12345678, "Nice comment", 5, 7, 12547850);
+        System.out.println(comment.getComment());
+        comment.editComment("This is an edited comment");
+        System.out.println(comment.getComment());
         System.out.println(User1.getUsername());
     }
 }
