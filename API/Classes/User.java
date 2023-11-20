@@ -1,38 +1,19 @@
 package org.example.API.Classes;
 
-
 import org.example.API.Interfaces.UserInterface;
 
-public class User implements UserInterface {
-    private static int users = 0;
-    private final String email;
-    private final long createdAt;
-    private String username;
-    private String password;
+// Abstract class providing common behavior
+abstract class AbstractUser implements UserInterface {
+    protected String username;
+    protected String password;
 
-    public User(String username, String email, String password, long createdAt) {
+    public AbstractUser(String username, String password) {
         this.username = username;
-        this.email = email;
         this.password = password;
-        this.createdAt = createdAt;
-        users++;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    abstract void getUserName();
 
-    public String getEmail() {
-        return email;
-    }
-
-    public long getCreatedAt() {
-        return createdAt;
-    }
-
-    public int getCountUsers() {
-        return users;
-    }
     @Override
     public void changeUserName(String newUserName) {
         this.username = newUserName;
@@ -43,9 +24,42 @@ public class User implements UserInterface {
         this.password = newPassword;
     }
 
+    public String getUsername() {
+        return username;
+    }
+}
+
+public class User extends AbstractUser {
+    private static int users = 0;
+    private final String email;
+    private final long createdAt;
+
+    public User(String username, String email, String password, long createdAt) {
+        super(username, password);
+        this.email = email;
+        this.createdAt = createdAt;
+        users++;
+    }
+
+    public static int getCountUsers() {
+        return users;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public long getCreatedAt() {
+        return createdAt;
+    }
+
     @Override
     public boolean toggleDarkMode(boolean darkModeState) {
         darkModeState = !darkModeState;
         return darkModeState;
+    }
+    @Override
+    void getUserName() {
+        System.out.println(username);
     }
 }
