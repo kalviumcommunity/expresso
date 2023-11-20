@@ -33,7 +33,7 @@ public class User extends AbstractUser {
     private final long createdAt;
 
     public User(String username, String email, String password, long createdAt) {
-        super(username, password); // Call the constructor of the abstract class
+        super(username, password);
         this.email = email;
         this.createdAt = createdAt;
         users++;
